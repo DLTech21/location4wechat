@@ -63,8 +63,7 @@ public class GeoCoderDemo extends Activity implements
 			EditText editGeoCodeKey = (EditText) findViewById(R.id.geocodekey);
 			// Geo搜索
 			mSearch.geocode(new GeoCodeOption().city(
-					editCity.getText().toString()).address(
-					editGeoCodeKey.getText().toString()));
+					editCity.getText().toString()).address(""));
 		}
 	}
 

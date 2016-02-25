@@ -64,7 +64,6 @@ public class LocationDemo extends Activity implements OnGetGeoCoderResultListene
     ArrayList<PoiInfo> datas;
     LocationPoiAdapter adapter;
     
-    
     boolean isTouch = true;
     
     @Override
@@ -79,60 +78,6 @@ public class LocationDemo extends Activity implements OnGetGeoCoderResultListene
         adapter = new LocationPoiAdapter(this, datas);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
-//        OnClickListener btnClickListener = new OnClickListener() {
-//            public void onClick(View v) {
-//                switch (mCurrentMode) {
-//                    case NORMAL:
-//                        requestLocButton.setText("跟随");
-//                        mCurrentMode = LocationMode.FOLLOWING;
-//                        mBaiduMap
-//                                .setMyLocationConfigeration(new MyLocationConfiguration(
-//                                        mCurrentMode, true, mCurrentMarker));
-//                        break;
-//                    case COMPASS:
-//                        requestLocButton.setText("普通");
-//                        mCurrentMode = LocationMode.NORMAL;
-//                        mBaiduMap
-//                                .setMyLocationConfigeration(new MyLocationConfiguration(
-//                                        mCurrentMode, true, mCurrentMarker));
-//                        break;
-//                    case FOLLOWING:
-//                        requestLocButton.setText("罗盘");
-//                        mCurrentMode = LocationMode.COMPASS;
-//                        mBaiduMap
-//                                .setMyLocationConfigeration(new MyLocationConfiguration(
-//                                        mCurrentMode, true, mCurrentMarker));
-//                        break;
-//                    default:
-//                        break;
-//                }
-//            }
-//        };
-//        requestLocButton.setOnClickListener(btnClickListener);
-
-        RadioGroup group = (RadioGroup) this.findViewById(R.id.radioGroup);
-        radioButtonListener = new OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.defaulticon) {
-                    // 传入null则，恢复默认图标
-                    mCurrentMarker = null;
-                    mBaiduMap
-                            .setMyLocationConfigeration(new MyLocationConfiguration(
-                                    mCurrentMode, true, null));
-                }
-                if (checkedId == R.id.customicon) {
-                    // 修改为自定义marker
-                    mCurrentMarker = BitmapDescriptorFactory
-                            .fromResource(R.drawable.icon_geo);
-                    mBaiduMap
-                            .setMyLocationConfigeration(new MyLocationConfiguration(
-                                    mCurrentMode, true, mCurrentMarker,
-                                                    accuracyCircleFillColor, accuracyCircleStrokeColor));
-                }
-            }
-        };
-        group.setOnCheckedChangeListener(radioButtonListener);
 
         // 地图初始化
         mMapView = (MapView) findViewById(R.id.bmapView);
